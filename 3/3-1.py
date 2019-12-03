@@ -63,9 +63,10 @@ for line in redwire:
             distance -= 1
 
 intersections = list(map(list, set(map(tuple, bluePath)) & set(map(tuple, redPath))))
-#this is fucking lazy lol
-closestIntersectionDistance = 99999
+closestIntersectionDistance = 0
 for point in intersections:
+    if point == intersections[0]:
+        closestIntersectionDistance = (abs(point[0]) + abs(point[1]))
     if (abs(point[0]) + abs(point[1])) < closestIntersectionDistance:
         closestIntersectionDistance = (abs(point[0]) + abs(point[1]))
 
